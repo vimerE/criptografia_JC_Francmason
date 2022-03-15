@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style type="text/css" rel="styleshet">
+        p{
+            text-align: justify;
+        }
+    </style>
+    <script type="text/javascript">
+        window.addEventListener("load", inicio, true);
+
+        function inicio(){
+            document.getElementById("mensajeCifrar").addEventListener("keyup", function(){
+                this.value = this.value.toUpperCase();
+            }, true);
+
+            document.getElementById("cifrar").addEventListener("click", function(){
+                let mensajeCifrar = document.getElementById("mensajeCifrar").value;
+                //let desplazamiento = document.getElementById("desplazamiento").value; 
+                document.getElementById("mensajeCifrado").innerHTML  = cifrar(mensajeCifrar);
+            }, true);
+
+        }
+
+        function cifrar(texto){
+            let resultado = "";
+            const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const abecedario  = ['<img src="../iconos/A.png"> ', '<img src="../iconos/B.png"> ', '<img src="../iconos/C.png"> ', '<img src="../iconos/D.png"> ',
+                                 '<img src="../iconos/E.png"> ', '<img src="../iconos/F.png"> ', '<img src="../iconos/G.png"> ', '<img src="../iconos/H.png"> ',
+                                 '<img src="../iconos/I.png"> ', '<img src="../iconos/J.png"> ', '<img src="../iconos/K.png"> ', '<img src="../iconos/L.png"> ',
+                                 '<img src="../iconos/M.png"> ', '<img src="../iconos/N.png"> ', '<img src="../iconos/O.png"> ', '<img src="../iconos/P.png"> ',
+                                 '<img src="../iconos/Q.png"> ', '<img src="../iconos/R.png"> ', '<img src="../iconos/S.png"> ', '<img src="../iconos/T.png"> ',
+                                 '<img src="../iconos/U.png"> ', '<img src="../iconos/V.png"> ', '<img src="../iconos/W.png"> ', '<img src="../iconos/X.png"> ',
+                                 '<img src="../iconos/Y.png"> ', '<img src="../iconos/Z.png"> '];
+            if(texto){
+                for(let i=0; i<texto.length; i++){
+                    if(letras.indexOf(texto[i]) != -1){
+                        let posicion = (letras.indexOf(texto[i]));
+                        resultado += abecedario[posicion];
+                    }else
+                        resultado += texto[i];
+                }
+            }
+            return resultado;
+        }
+
+
+    </script>
+    <title>Cifrado Julio Cesar</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1 class="text-center mt-4">Cifrado PigPen - Francmasón</h1>
+        <hr>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <h3 class="text-center">Ejemplo</h3>
+                <p class="lh-1"> El <b>cifrado francmasón</b> (alternativamente conocido como el <b>cifrado masónico, el cifrado Napoleón, y el cifrado tres en raya</b>) es un cifrado geométrico de sustitución simple, que intercambia letras por símbolos que son fragmentos de una cuadrícula.
+                </p>
+                <center><img src="../informacion/francmason.png" width=""></center>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-center">Cifrar</h3>
+                <div class="bg-warning p-4 rounded">
+                    <input type="text" class="form-control" id="mensajeCifrar" placeholder="Ingrese el texto a cifrar">
+                    <br>
+                    <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-success" id="cifrar">Cifrar Texto</button>
+                    </div>
+                    <br>
+                    <div id="mensajeCifrado"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-center">Descifrar</h3>
+                <center>
+                    <form name="francmason" class="bg-warning p-4 rounded">
+                    <input type="textfield" class="form-control" name="texto" value="" autocomplete="off" readonly>
+                    <br>
+                    <button type="button" class="" value="A" onclick="document.francmason.texto.value+='A'"><img src="../iconos/A.png" width="50%" height="50%"></button> 
+                    <button type="button" class="" value="B" onclick="document.francmason.texto.value+='B'"><img src="../iconos/B.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="C" onclick="document.francmason.texto.value+='C'"><img src="../iconos/C.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="D" onclick="document.francmason.texto.value+='D'"><img src="../iconos/D.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="E" onclick="document.francmason.texto.value+='E'"><img src="../iconos/E.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="F" onclick="document.francmason.texto.value+='F'"><img src="../iconos/F.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="A" onclick="document.francmason.texto.value+='G'"><img src="../iconos/G.png" width="50%" height="50%"></button> 
+                    <button type="button" class="" value="B" onclick="document.francmason.texto.value+='H'"><img src="../iconos/H.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="C" onclick="document.francmason.texto.value+='I'"><img src="../iconos/I.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="D" onclick="document.francmason.texto.value+='J'"><img src="../iconos/J.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="E" onclick="document.francmason.texto.value+='K'"><img src="../iconos/K.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="F" onclick="document.francmason.texto.value+='L'"><img src="../iconos/L.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="A" onclick="document.francmason.texto.value+='M'"><img src="../iconos/M.png" width="50%" height="50%"></button> 
+                    <button type="button" class="" value="B" onclick="document.francmason.texto.value+='N'"><img src="../iconos/N.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="C" onclick="document.francmason.texto.value+='O'"><img src="../iconos/O.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="D" onclick="document.francmason.texto.value+='P'"><img src="../iconos/P.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="E" onclick="document.francmason.texto.value+='Q'"><img src="../iconos/Q.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="F" onclick="document.francmason.texto.value+='R'"><img src="../iconos/R.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="A" onclick="document.francmason.texto.value+='S'"><img src="../iconos/S.png" width="50%" height="50%"></button> 
+                    <button type="button" class="" value="B" onclick="document.francmason.texto.value+='T'"><img src="../iconos/T.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="C" onclick="document.francmason.texto.value+='U'"><img src="../iconos/U.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="D" onclick="document.francmason.texto.value+='V'"><img src="../iconos/V.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="E" onclick="document.francmason.texto.value+='W'"><img src="../iconos/W.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="F" onclick="document.francmason.texto.value+='X'"><img src="../iconos/X.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="E" onclick="document.francmason.texto.value+='Y'"><img src="../iconos/Y.png" width="50%" height="50%"></button>
+                    <button type="button" class="" value="F" onclick="document.francmason.texto.value+='Z'"><img src="../iconos/Z.png" width="50%" height="50%"></button>
+                    <button type="reset"><img src="../iconos/borrar.png" width="50%" height="50%"></button>
+                </form>
+            </center>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+
+
+<!--------------------------------------------------------------------------------->
+
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        window.addEventListener("load", inicio, true);
+
+        function inicio(){
+            document.getElementById("mensajeCifrar").addEventListener("keyup", function(){
+                this.value = this.value.toUpperCase();
+            }, true);
+
+            document.getElementById("cifrar").addEventListener("click", function(){
+                let mensajeCifrar = document.getElementById("mensajeCifrar").value;
+                let desplazamiento = document.getElementById("desplazamiento").value; 
+                document.getElementById("mensajeCifrado").value = cifrar(mensajeCifrar, desplazamiento);
+            }, true);
+
+            document.getElementById("descifrar").addEventListener("click", function(){
+                let mensajeCifrar = document.getElementById("mensajeCifrar").value;
+                let desplazamiento = document.getElementById("desplazamiento").value; 
+                document.getElementById("mensajeCifrado").value = descifrar(mensajeCifrar, desplazamiento);
+            }, true);
+        }
+
+        function cifrar(texto, desplazamiento){
+            let resultado = "";
+            const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            desplazamiento = (desplazamiento % 26 + 26) % 26;
+
+            if(texto){
+                for(let i=0; i<texto.length; i++){
+                    if(letras.indexOf(texto[i]) != -1){
+                        let posicion = ((letras.indexOf(texto[i]) + desplazamiento)%26);
+                        resultado += letras[posicion];
+                    }else
+                        resultado += texto[i];
+                }
+            }
+            return resultado;
+        }
+
+        /*function cifrar2(texto, desplazamiento){
+            if(!texto){
+                return "";
+            }
+            const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            desplazamiento = (desplazamiento % 26 + 26) % 26;
+            //return texto.replace(/[A-Z]/ig, c=> letras[(letras.indexOf(c) + desplazamiento)%26]);
+            return texto.replace(/[A-Z]/ig, c=> letras[(letras.indexOf(c)+desplazamiento)%26]);
+        }*/
+
+        function descifrar(texto, desplazamiento){
+            let resultado = "";
+            const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            desplazamiento = (desplazamiento % 26 - 26) % 26;
+
+            if(texto){
+                for(let i=0; i<texto.length; i++){
+                    if(letras.indexOf(texto[i]) != -1){
+                        let posicion = ((letras.indexOf(texto[i]) - desplazamiento)%26);
+                        resultado += letras[posicion];
+                    }else
+                        resultado += texto[i];
+                }
+            }
+            return resultado;
+        }
+
+
+    </script>
+    <title>Cifrador</title>
+</head>
+<body>
+    <input type="text" id="mensajeCifrar" placeholder="Ingrese el texto a cifrar">
+    <br>
+    <input type="number" id="desplazamiento" placeholder="Ingrese el número a desplazar">
+    <br>
+    <button type="button" id="cifrar">Cifrar texto</button>
+    <br>
+    <button type="button" id="descifrar">Descifrar texto</button>
+    <br>
+    <input type="text" id="mensajeCifrado">
+</body>
+
+</html>
